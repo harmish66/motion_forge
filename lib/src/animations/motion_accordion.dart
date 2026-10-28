@@ -69,9 +69,17 @@ class _MotionAccordionState extends State<MotionAccordion>
 
   @override
   Widget build(BuildContext context) {
-    return SizeTransition(
-      sizeFactor: _animation,
-      axisAlignment: -1.0,
+    return AnimatedBuilder(
+      animation: _animation,
+      builder: (context, child) {
+        return ClipRect(
+          child: Align(
+            alignment: Alignment.topCenter,
+            heightFactor: _animation.value.clamp(0.0, 1.0),
+            child: child,
+          ),
+        );
+      },
       child: widget.child,
     );
   }

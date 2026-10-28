@@ -160,7 +160,7 @@ class _MotionTilt3DState extends State<MotionTilt3D>
               ..setEntry(3, 2, widget.perspective)
               ..rotateX(currentAngleX)
               ..rotateY(currentAngleY)
-              ..scale(_scaleAnimation.value, _scaleAnimation.value, 1.0);
+              ..scaleByDouble(_scaleAnimation.value, _scaleAnimation.value, 1.0, 1.0);
 
             return Transform(
               alignment: FractionalOffset.center,

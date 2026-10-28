@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.2
+
+- Refactored `MotionAccordion` to use `ClipRect` and `Align` height factors, eliminating deprecated `axisAlignment`.
+- Updated `MotionTilt3D` matrix scaling to use `scaleByDouble` to address deprecation warnings on newer SDKs.
+- Clean static analysis pass with zero warnings for full pub points.
+
 ## 0.0.1
 
 - Initial release of motion_forge.
