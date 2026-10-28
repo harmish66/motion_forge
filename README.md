@@ -4,14 +4,14 @@ A lightweight, declarative Flutter package for fluid UI animations, interactive 
 
 ## Animation Previews
 
-| Animation | Visual Diagram | Description |
+| Animation | Animated Preview | Description |
 | :--- | :--- | :--- |
-| **MotionTilt3D** | ![MotionTilt3D Preview](doc/assets/preview_tilt_3d.svg)<br>*(Screen recording placeholder: `doc/assets/motion_tilt_3d.gif`)* | Interactive 4x4 matrix perspective rotation on touch drag or cursor hover with dynamic glare. |
-| **MotionFlipCard** | ![MotionFlipCard Preview](doc/assets/preview_flip_card.svg)<br>*(Screen recording placeholder: `doc/assets/motion_flip_card.gif`)* | 180-degree flip in 3D perspective between front and back views with backface culling. |
-| **MotionMorphReveal** | ![MotionMorphReveal Preview](doc/assets/preview_morph_reveal.svg)<br>*(Screen recording placeholder: `doc/assets/motion_morph_reveal.gif`)* | Geometric clipping path transitions including expanding circles, directional wipes, and diamonds. |
-| **MotionRipple** | ![MotionRipple Preview](doc/assets/preview_ripple.svg)<br>*(Screen recording placeholder: `doc/assets/motion_ripple.gif`)* | Expanding concentric radar rings around icons, buttons, or avatar badges. |
-| **MotionShake** | ![MotionShake Preview](doc/assets/preview_shake.svg)<br>*(Screen recording placeholder: `doc/assets/motion_shake.gif`)* | Sinusoidal decay oscillation feedback for validation errors and attention cues. |
-| **MotionSpring** | ![MotionSpring Preview](doc/assets/preview_spring.svg)<br>*(Screen recording placeholder: `doc/assets/motion_spring.gif`)* | Physics-driven simulation with customizable mass, stiffness, and damping. |
+| **MotionTilt3D** | ![MotionTilt3D Preview](https://raw.githubusercontent.com/harmish66/motion_forge/main/doc/assets/motion_tilt_3d.gif) | Interactive 4x4 matrix perspective rotation on touch drag or cursor hover with dynamic specular glare. |
+| **MotionFlipCard** | ![MotionFlipCard Preview](https://raw.githubusercontent.com/harmish66/motion_forge/main/doc/assets/motion_flip_card.gif) | 180-degree flip in 3D perspective between front and back views with backface culling. |
+| **MotionRipple** | ![MotionRipple Preview](https://raw.githubusercontent.com/harmish66/motion_forge/main/doc/assets/motion_ripple.gif) | Expanding concentric radar rings around icons, buttons, or avatar badges. |
+| **MotionShake** | ![MotionShake Preview](https://raw.githubusercontent.com/harmish66/motion_forge/main/doc/assets/motion_shake.gif) | Sinusoidal decay oscillation feedback for validation errors and attention cues. |
+| **MotionSpring** | ![MotionSpring Preview](https://raw.githubusercontent.com/harmish66/motion_forge/main/doc/assets/motion_spring.gif) | Physics-driven simulation with customizable mass, stiffness, and damping. |
+| **MotionMorphReveal** | ![MotionMorphReveal Preview](https://raw.githubusercontent.com/harmish66/motion_forge/main/doc/assets/motion_morph_reveal.gif) | Geometric clipping path transitions including expanding circles, directional wipes, and diamonds. |
 
 ---
 

@@ -17,3 +17,4 @@ export 'src/animations/motion_ripple.dart';
 export 'src/animations/motion_blur_reveal.dart';
 export 'src/animations/motion_accordion.dart';
 export 'src/extensions/motion_extensions.dart';
+
