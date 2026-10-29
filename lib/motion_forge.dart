@@ -16,5 +16,10 @@ export 'src/animations/motion_count_number.dart';
 export 'src/animations/motion_ripple.dart';
 export 'src/animations/motion_blur_reveal.dart';
 export 'src/animations/motion_accordion.dart';
+export 'src/text/motion_typewriter.dart';
+export 'src/text/motion_text_scramble.dart';
+export 'src/text/motion_text_flip.dart';
+export 'src/text/motion_text_glitch.dart';
+export 'src/text/motion_text_shine.dart';
+export 'src/text/motion_text_fade_scale.dart';
 export 'src/extensions/motion_extensions.dart';
-

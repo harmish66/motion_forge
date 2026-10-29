@@ -11,6 +11,12 @@ import '../animations/motion_shimmer.dart';
 import '../animations/motion_spring.dart';
 import '../animations/motion_tilt_3d.dart';
 import '../core/motion_config.dart';
+import '../text/motion_text_fade_scale.dart';
+import '../text/motion_text_flip.dart';
+import '../text/motion_text_glitch.dart';
+import '../text/motion_text_scramble.dart';
+import '../text/motion_text_shine.dart';
+import '../text/motion_typewriter.dart';
 
 /// Convenient extension methods on [Widget] for declarative animation chaining.
 extension MotionExtensions on Widget {
@@ -235,6 +241,100 @@ extension MotionExtensions on Widget {
       duration: duration,
       curve: curve,
       child: this,
+    );
+  }
+}
+
+/// Convenient extension methods on [String] for text animations.
+extension MotionStringExtensions on String {
+  /// Converts this string into an animated typewriter widget.
+  Widget typewriter({
+    Key? key,
+    TextStyle? style,
+    Duration typingSpeed = const Duration(milliseconds: 65),
+    bool showCursor = true,
+  }) {
+    return MotionTypewriter(
+      key: key,
+      texts: [this],
+      style: style,
+      typingSpeed: typingSpeed,
+      showCursor: showCursor,
+      loop: false,
+    );
+  }
+
+  /// Converts this string into an animated hacker/scramble decryptor widget.
+  Widget scramble({
+    Key? key,
+    TextStyle? style,
+    Duration duration = const Duration(milliseconds: 900),
+  }) {
+    return MotionTextScramble(
+      key: key,
+      text: this,
+      style: style,
+      duration: duration,
+    );
+  }
+
+  /// Converts this string into an animated 3D flip text widget.
+  Widget textFlip({
+    Key? key,
+    TextStyle? style,
+    Duration charDuration = const Duration(milliseconds: 400),
+  }) {
+    return MotionTextFlip(
+      key: key,
+      text: this,
+      style: style,
+      charDuration: charDuration,
+    );
+  }
+
+  /// Converts this string into a digital glitch text widget.
+  Widget textGlitch({
+    Key? key,
+    TextStyle? style,
+    Duration glitchInterval = const Duration(milliseconds: 2500),
+  }) {
+    return MotionTextGlitch(
+      key: key,
+      text: this,
+      style: style,
+      glitchInterval: glitchInterval,
+    );
+  }
+
+  /// Converts this string into a metallic light sweep shine text widget.
+  Widget textShine({
+    Key? key,
+    TextStyle? style,
+    Color baseColor = const Color(0xFF64748B),
+    Color shineColor = const Color(0xFFFFFFFF),
+    Duration duration = const Duration(milliseconds: 2000),
+  }) {
+    return MotionTextShine(
+      key: key,
+      text: this,
+      style: style,
+      baseColor: baseColor,
+      shineColor: shineColor,
+      duration: duration,
+    );
+  }
+
+  /// Converts this string into an animated word bounce fade scale widget.
+  Widget textFadeScale({
+    Key? key,
+    TextStyle? style,
+    Duration staggerDuration = const Duration(milliseconds: 120),
+  }) {
+    return MotionTextFadeScale(
+      key: key,
+      text: this,
+      style: style,
+      staggerDuration: staggerDuration,
     );
   }
 }

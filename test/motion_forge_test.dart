@@ -233,6 +233,115 @@ void main() {
       expect(find.text('AccordionContent'), findsOneWidget);
     });
 
+    testWidgets('MotionTypewriter types and displays text', (tester) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: MotionTypewriter(
+              texts: ['TypewriterTest'],
+              typingSpeed: Duration(milliseconds: 10),
+              showCursor: false,
+              loop: false,
+            ),
+          ),
+        ),
+      );
+
+      expect(find.byType(MotionTypewriter), findsOneWidget);
+      await tester.pump(const Duration(milliseconds: 250));
+      expect(
+        find.byWidgetPredicate(
+          (widget) =>
+              widget is RichText &&
+              widget.text.toPlainText().contains('TypewriterTest'),
+        ),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('MotionTextScramble resolves to target text', (tester) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: MotionTextScramble(
+              text: 'DecryptedText',
+              duration: Duration(milliseconds: 100),
+              stepInterval: Duration(milliseconds: 20),
+            ),
+          ),
+        ),
+      );
+
+      expect(find.byType(MotionTextScramble), findsOneWidget);
+      await tester.pump(const Duration(milliseconds: 250));
+      expect(find.text('DecryptedText'), findsOneWidget);
+    });
+
+    testWidgets('MotionTextFlip renders and settles characters', (tester) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: MotionTextFlip(
+              text: 'FlipText',
+              staggerDuration: Duration(milliseconds: 20),
+              charDuration: Duration(milliseconds: 100),
+            ),
+          ),
+        ),
+      );
+
+      expect(find.byType(MotionTextFlip), findsOneWidget);
+      await tester.pumpAndSettle();
+      expect(find.byType(MotionTextFlip), findsOneWidget);
+    });
+
+    testWidgets('MotionTextGlitch mounts and displays text', (tester) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: MotionTextGlitch(
+              text: 'GlitchTarget',
+            ),
+          ),
+        ),
+      );
+
+      expect(find.text('GlitchTarget'), findsOneWidget);
+    });
+
+    testWidgets('MotionTextShine renders shader mask', (tester) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: MotionTextShine(
+              text: 'ShineTarget',
+            ),
+          ),
+        ),
+      );
+
+      expect(find.text('ShineTarget'), findsOneWidget);
+    });
+
+    testWidgets('MotionTextFadeScale renders words', (tester) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: MotionTextFadeScale(
+              text: 'Alpha Beta',
+              staggerDuration: Duration(milliseconds: 50),
+              wordDuration: Duration(milliseconds: 100),
+            ),
+          ),
+        ),
+      );
+
+      expect(find.byType(MotionTextFadeScale), findsOneWidget);
+      await tester.pumpAndSettle();
+      expect(find.text('Alpha'), findsOneWidget);
+      expect(find.text('Beta'), findsOneWidget);
+    });
+
     testWidgets('MotionExtensions wrap widgets cleanly', (tester) async {
       final Widget testWidget =
           const Text('ExtensionTarget').tilt3D().shimmer().shake();
@@ -252,4 +361,3 @@ void main() {
     });
   });
 }
-

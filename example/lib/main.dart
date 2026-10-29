@@ -49,6 +49,14 @@ class _MotionForgeHomePageState extends State<MotionForgeHomePage> {
   final GlobalKey<MotionShakeState> _shakeKey = GlobalKey<MotionShakeState>();
   final GlobalKey<MotionBlurRevealState> _blurKey =
       GlobalKey<MotionBlurRevealState>();
+  final GlobalKey<MotionTextScrambleState> _scrambleKey =
+      GlobalKey<MotionTextScrambleState>();
+  final GlobalKey<MotionTextFlipState> _textFlipKey =
+      GlobalKey<MotionTextFlipState>();
+  final GlobalKey<MotionTextGlitchState> _glitchKey =
+      GlobalKey<MotionTextGlitchState>();
+  final GlobalKey<MotionTextFadeScaleState> _fadeScaleKey =
+      GlobalKey<MotionTextFadeScaleState>();
 
   RevealShape _currentShape = RevealShape.circle;
   int _staggerKeyCounter = 0;
@@ -58,6 +66,7 @@ class _MotionForgeHomePageState extends State<MotionForgeHomePage> {
   static const List<Tab> _tabs = [
     Tab(text: '3D Tilt'),
     Tab(text: '3D Flip'),
+    Tab(text: 'Text Suite'),
     Tab(text: 'Shake'),
     Tab(text: 'Blur Reveal'),
     Tab(text: 'Ripple'),
@@ -92,6 +101,7 @@ class _MotionForgeHomePageState extends State<MotionForgeHomePage> {
           children: [
             _buildTabWrapper(_buildTiltDemo()),
             _buildTabWrapper(_buildFlipCardDemo()),
+            _buildTabWrapper(_buildTextSuiteDemo()),
             _buildTabWrapper(_buildShakeDemo()),
             _buildTabWrapper(_buildBlurRevealDemo()),
             _buildTabWrapper(_buildRippleDemo()),
@@ -201,6 +211,169 @@ class _MotionForgeHomePageState extends State<MotionForgeHomePage> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildTextSuiteDemo() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Typography & Text Animation Suite',
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 8),
+        const Text(
+          'Six dedicated text animations: Typewriter, Scramble Decryptor, 3D Flip, Glitch, Shine, and Elastic Pop.',
+          style: TextStyle(color: Color(0xFF475569)),
+        ),
+        const SizedBox(height: 24),
+        _buildTextDemoCard(
+          title: '1. MotionTypewriter',
+          description:
+              'Types, pauses, backspaces, and cycles through phrases with blinking caret.',
+          child: const MotionTypewriter(
+            texts: [
+              'Build fluid Flutter apps',
+              'Smooth physics transitions',
+              'Declarative animations made simple',
+            ],
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: Color(0xFF0F172A),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        _buildTextDemoCard(
+          title: '2. MotionTextScramble',
+          description:
+              'Decryption effect cycling through random glyphs before resolving characters.',
+          child: MotionTextScramble(
+            key: _scrambleKey,
+            text: 'System Authentication Verified',
+            duration: const Duration(milliseconds: 1200),
+            style: const TextStyle(
+              fontSize: 16,
+              fontFamily: 'monospace',
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF0284C7),
+            ),
+          ),
+          action: ElevatedButton(
+            onPressed: () => _scrambleKey.currentState?.scramble(),
+            child: const Text('Re-trigger Scramble'),
+          ),
+        ),
+        const SizedBox(height: 16),
+        _buildTextDemoCard(
+          title: '3. MotionTextFlip',
+          description:
+              'Split-flap 3D character rotation along X-axis with perspective.',
+          child: MotionTextFlip(
+            key: _textFlipKey,
+            text: 'FLUTTER MOTION FORGE',
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 2.0,
+              color: Color(0xFF0F172A),
+            ),
+          ),
+          action: ElevatedButton(
+            onPressed: () => _textFlipKey.currentState?.replay(),
+            child: const Text('Replay 3D Flip'),
+          ),
+        ),
+        const SizedBox(height: 16),
+        _buildTextDemoCard(
+          title: '4. MotionTextGlitch',
+          description: 'Digital chromatic aberration and RGB slice offsets.',
+          child: MotionTextGlitch(
+            key: _glitchKey,
+            text: 'CYBERPUNK GLITCH PROTOCOL',
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1.5,
+              color: Color(0xFF0F172A),
+            ),
+          ),
+          action: ElevatedButton(
+            onPressed: () => _glitchKey.currentState?.triggerGlitch(),
+            child: const Text('Trigger Glitch'),
+          ),
+        ),
+        const SizedBox(height: 16),
+        _buildTextDemoCard(
+          title: '5. MotionTextShine',
+          description:
+              'Continuous metallic light sweep passing across letter glyphs.',
+          child: const MotionTextShine(
+            text: 'PREMIUM SHINE EFFECT',
+            baseColor: Color(0xFF475569),
+            shineColor: Color(0xFF38BDF8),
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1.2,
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        _buildTextDemoCard(
+          title: '6. MotionTextFadeScale',
+          description: 'Staggered word entrance with elastic scale pop.',
+          child: MotionTextFadeScale(
+            key: _fadeScaleKey,
+            text: 'Crafting fluid motion natively in Flutter',
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: Color(0xFF0F172A),
+            ),
+          ),
+          action: ElevatedButton(
+            onPressed: () => _fadeScaleKey.currentState?.replay(),
+            child: const Text('Replay Word Pop'),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildTextDemoCard({
+    required String title,
+    required String description,
+    required Widget child,
+    Widget? action,
+  }) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: const Color(0xFFE2E8F0)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title,
+              style:
+                  const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 4),
+          Text(description,
+              style: const TextStyle(fontSize: 13, color: Color(0xFF64748B))),
+          const SizedBox(height: 16),
+          child,
+          if (action != null) ...[
+            const SizedBox(height: 14),
+            action,
+          ],
+        ],
+      ),
     );
   }
 

@@ -1,6 +1,6 @@
 name: motion_forge
 description: A lightweight, declarative Flutter package for fluid UI animations, interactive 3D perspective transforms, physics spring motion, and staggered entrances.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/harmish66/motion_forge
 repository: https://github.com/harmish66/motion_forge
 issue_tracker: https://github.com/harmish66/motion_forge/issues

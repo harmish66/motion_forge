@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.0.3
+
+- Added comprehensive typography and text animations suite:
+  - `MotionTypewriter`: multi-phrase cycling, customizable typing speed, backspacing, and blinking caret.
+  - `MotionTextScramble`: matrix/cyberpunk decryption text reveal with randomized glyph cycling.
+  - `MotionTextFlip`: split-flap 3D letter flip entrance along the X-axis.
+  - `MotionTextGlitch`: digital chromatic aberration with RGB slice offsets.
+  - `MotionTextShine`: metallic light sweep gradient shader mask across letter glyphs.
+  - `MotionTextFadeScale`: staggered word pop-in with elastic scale bounce.
+- Added string extension helpers: `.typewriter()`, `.scramble()`, `.textFlip()`, `.textGlitch()`, `.textShine()`, `.textFadeScale()`.
+- Added dedicated Text Animations tab in the showcase demo application.
+- Added animated GIF previews for text animations in the documentation.
+
 ## 0.0.2
 
 - Refactored `MotionAccordion` to use `ClipRect` and `Align` height factors, eliminating deprecated `axisAlignment`.
